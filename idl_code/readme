@@ -1,0 +1,140 @@
+
+1.start_caliop.pro to triger the program
+2.main_caliop_parallel.f90 one processor processes one day file and then write result out
+main_caliop_parallel_copy1.f90 one processor processes one day file,add all result together to get monthly result, then write result out 
+
+opacity_flag 1--opaque, 0--transparent
+test cad score > 20, aerosol frequency is spread over midlatitude storm track, which looks like liquid clouds.
+check cad score > 50, result pattern not change (resutls look right see Julia Fuchs and Jan Cermak 2015 paper)
+
+3.post processing
+3.1.1 plot_lidlayer_phase.pro to plot vertical distributions of different cloud type(relate to cloud phase), verson1_output seasonal average(cold/warm), including plot_average_result,plot_aerosol;
+3.1.2 plot_aerocld_overlap.pro to plot aerosol frequency with/without cloud overlap (change plot data to obtain frequency or tau), data from plot_lidlayer_phase_1.pro, timeseries from lidlayer_phase_timeseries.pro
+=== regional and seasonal analysis
+plot_regional_seasonal_analysis.pro (a merge of plot_aerocld_overlap and lidlayer_phase_timeseries.pro, for the 4.20 and screened version)
+;2021/02/25 add tau uncertainty for each region
+
+plot_timeseries.pro to plot results 
+plot_timeseries_fra.pro to plot aerosol fraction results 
+plot_timeseries_tau.pro to plot aerosol optical depth results 
+
+3.2plot_aero_3D.pro to plot aerosol distributions in 3D dimentional 
+3.3plot_aero_3D_season.pro to plot 3D aerosol frequency in four seasons
+
+3.4 to plot annual aerosol occurrence frequency and aod for two cases: no-cloud aerosol, with-cloud aerosol
+  plot_annual_aerosol_fretau.pro from all_aerosols folder
+  plot_annual_aerosol_fretau1.pro from aerosol_cloud_overlap folder
+  plot_annual_aerosol_fretau2.pro from the aerosol_cloud_overlap_screen_2 folder
+  plot_annual_aerosol_fretau3.pro from the aerosol_cloud_overlap_screen_2 folder,add AOF and AOD difference between clear and cloudy sky
+  plot_annual_aerosol_fretau4.pro from the aerosol_cloud_overlap_screen_2 folder,add and check no aerosol situation 
+  plot_annual_aerosol_mergedaynight_fretau2.pro ; to merge day+night for land or ocean
+  plot_annual_aerosol_mergelandocean_fretau2.pro ; to merge ocean and land for global day or night
+
+3.5 
+to plot annual aerosol above, under,in cloud and the corresponding tau, depolarization ratio, backscatt from aerosol_cloud_overlap folder
+plot_annual_aerocld_property.pro
+plot_annual_aerocld_property3.pro to add the no aerosol situation
+plot_annual_aerocld_property_region.pro
+
+for version1, to get the combined groups' distribution
+plot_annual_aerocld_mergedaynight_property2.pro ; to merge daynight for land or ocean
+plot_annual_aerocld_mergelandocean_property2.pro ; to merge land and ocean for day or night
+
+3.6 
+to plot the occurrence of opaque clouds
+plot_opaque_cloud.pro
+
+3.7
+to plot 2d pdf of cloud top vs the gap of overlying aerosols 
+plot_aero_above_cld_2dpdf.pro
+
+3.8
+to plot aerosols with tau > 1.0
+plot_aero_taugt1.pro
+
+3.9 
+to plot lidar ratio for each aerosol group and 2d histogram of backscatter vs. depoli ratio
+plot_lidar_ratio_bd.pro
+plot_lidratio_colratio_bd2.pro-- also include lidar ratio vs. color ratio
+calculate_mean_st_pdf.pro --- calculate the mean and standard deviation from a pdf
+calculate_2mean_2st_2pdf.pro --- calculate the mean and standard deviation from a 2dpdf
+
+3.10
+to plot transmittance 
+plot_transmittance.pro
+
+3.11
+day vs. night; land vs. ocean
+plot_dnls.pro
+
+3.12
+lidar ratio vs. color ratio and overlap with depolarization ratio
+plot_lidcoldep_ratio.pro
+
+3.13. 
+1.check uncertainty reported in the dataset
+2.check the relationship of cloud and aerosol tau 
+plot_tau_uncer.pro
+
+6.9.2020
+cases study
+cloud_aerosol_categoriy_2016* generated from calculate_core,also the case for CAmp2ex and ORACLES
+to find cases of aerosol grouping
+plot_cases.pro
+plot_cases.ipynb the pythons version to plot the cases
+
+6.10.2020
+check the large aod relationship with adjacient aod
+large_aod_neighbor.pro
+to plot the result loading file : aod_cod_relationship.sav
+plot_large_aod_neighbor.pro
+
+6.29.2020
+add cacluate the median from pdf
+calculate_2median_95_2pdf.pro
+
+7.1.2020
+obtain the frequency of different filters
+plot_distribution_filters.pro
+
+7.3.2020
+obtain the average backscatter after excluding each filter 
+plot_backscatter_filters.pro
+plot_backscatter_filters_1.pro
+
+2.11.2021
+plot_subarea_paper_v.pro
+
+2.17.2021
+to plot the average backscatter profile for selected regions
+ plot_region_backscatter1.pro ,result from plot_median_profile
+
+2.22.2021
+plot_median_profile.pro
+to get the median backscatter profile for selected regions
+plot_median_profile1.pro 
+plot_global_mean_median_backscatter_profile.pro
+;using plot plot_region_backscatter1.pro to plot the results
+4.15.2021
+plot_region_backscatter_occur.pro to plot the vertical occurrence frequency of aerosols;
+result from plot_median_profile.pro
+
+3.3. 2021
+to obtain the mean and standdard deviation from pdf and do significant test
+pdf_significance.pro
+
+3.17.2021
+to obtain the lidar backscatter above cloud top
+lidar_backscatter_above_ctop.pro
+
+4.15.2021
+to plot the mean and standard deviation of aod and aof for different regions
+plot_region_aod_aof_season.pro 
+
+to plot the vertical distributions of aerosols in different regions
+plot_region_aerofre_profile.pro    
+
+1.18.2022
+to check the uncertainty of aod and aerosol layer geometric thickness for regions
+region_aerosol_thickness_uncertainty.ipynb
+plot_region_aerosol_thickness_uncertainty.ipynb to plot the results

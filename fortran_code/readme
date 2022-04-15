@@ -1,0 +1,47 @@
+# cray enviroment should use gnu
+1. check the output
+check_output.pro
+===== 2019/07/17 ====
+1. update the depolarizaiton ratio and backscatter pdf from previous column average to each layer
+2. add lidar ratio of clouds and aerosols
+3. update the multiple aerosols and clouds to obtain aerosols above and below clouds
+==== 2019/07/25 ====
+1. add day night flag
+2. add the two-way transimittance for aerosol below clouds
+=== 2019/07/31 ====
+1. add ocean and land mask to inaero & isolate aerosol numh
+2. can output day and night data
+3. change the CAD threshold as a global parameter
+====2019/08/21 ====
+1. ==== add color ratio ====
+ color ratio pdf, and lidar ratio vs. color ratio mean and stddev
+====2019/10/16====
+add quanlity screening filters: |CAD score|>=20, cirrus filter, Extinction QC (0,1,18,16), Extinction uncertainty (99.99 1/km and samples below are rejected),isolated 80km horizontal resolution, negative values,  in new folder: aerosol_cloud_overlap_screen
+
+===2020/03/31/========
+1.move to new version to exclude the profiles out of quanlity control
+2. negative tau value is not recorded any more
+3. do not record cloud phase any more
+4. delete the top-base 2d histogram,and top-aero cloud gap 2d histogram
+5. adding vertical occurrence, backscatter, extinction profiles4. delete the top-base 2d histogram
+6. delete the transimittance and tau uncertainty
+7. delete the deporalization ratio pdf
+8. delete land vs sea
+===2020/04/04/==========
+1. do not consider cloud uncertainty 
+
+=== 2020/04/12======
+1. delete the colratio and lidratio pdf, which can be derived from lidcol array
+2. delete backscatt pdf, which can be derived from scatdep
+
+===2020/07/01======
+1. add writing the filters out
+
+===2020/07/13=====
+1. add day vs night and land vs ocean options 
+
+==== 2021/02/17/ ====
+1. add the pdf of backscatter to obtain median value of backscatter
+
+==== 2021/03/18/====
+1. add the occurrence frequency of no-cloud-no-aerosol, cloud-no-aerosol(include transparency+opaque)

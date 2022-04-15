@@ -1,0 +1,16 @@
+----------------------------------------
+Begin Torque Prologue on nid25262
+at Wed Apr 15 06:08:49 CDT 2020
+Job Id:			11213933.bw
+Username:		yulanh
+Group:			ILL_bbaq
+Job name:		allinTX3O0X
+Requested resources:	walltime=00:10:00,nodes=1:ppn=2:xe,neednodes=1:ppn=2:xe
+Queue:			debug
+Account:		bbaq
+End Torque Prologue:  0.103 elapsed
+----------------------------------------
+
+
+
+
